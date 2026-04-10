@@ -199,3 +199,16 @@ function initFeedbackForm() {
         document.querySelectorAll("#starRating span").forEach(s => s.classList.remove("active"));
     });
 }
+
+
+
+const slides = document.querySelectorAll(".hero-bg");
+let index = 0;
+
+setInterval(() => {
+    slides[index].classList.remove("active");
+
+    index = (index + 1) % slides.length;
+
+    slides[index].classList.add("active");
+}, 5000);
