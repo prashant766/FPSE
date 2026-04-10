@@ -5548,3 +5548,17 @@ html {
     object-fit: contain;
     display: inline-block;
 }
+
+.nfpa-logo {
+    width: 40px;
+    height: auto;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.nfpa-logo {
+    width: 45px;
+    vertical-align: middle;
+    margin-right: 12px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
