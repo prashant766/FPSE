@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ | FPS Engineering</title>
+
+<style>
+   body {
+    background: linear-gradient(135deg, #eef2f7, #ffffff);
+    color: #111;
+    padding: 60px 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* TITLE */
+h1 {
+    text-align: center;
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #555;
+    font-size: 18px;
+    margin-bottom: 50px;
+}
+
+/* FAQ BOX */
+.faq {
+    max-width: 900px;
+    margin: auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+
+/* EACH ITEM */
+.faq-item {
+    border-bottom: 1px solid #eee;
+    transition: 0.3s;
+}
+
+/* QUESTION */
+.faq-question {
+    padding: 22px 25px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.faq-question:hover {
+    background: #f8fbff;
+}
+
+/* ANSWER */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 25px;
+    font-size: 16px;
+    color: #444;
+    line-height: 1.7;
+    transition: 0.4s ease;
+}
+
+/* ACTIVE */
+.faq-item.active {
+    background: #f9fcff;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 300px;
+    padding: 15px 25px 25px;
+}
+
+/* ICON */
+.icon {
+    font-size: 22px;
+    font-weight: bold;
+    color: #00a8a8;
+    transition: 0.3s;
+}
+
+.faq-item.active .icon {
+    transform: rotate(45deg);
+}
+
+/* CONTACT BOX */
+.contact-box {
+    max-width: 900px;
+    margin: 40px auto 0;
+    padding: 30px;
+    text-align: center;
+    background: linear-gradient(135deg, #2a8c7d, #1f6f63);
+    border-radius: 14px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Frequently Asked Questions</h1>
+    <p class="subtitle">Clear answers to common queries about our services, training, and consultancy</p>
+
+    <div class="faq">
+
+        <!-- ITEM -->
+        <div class="faq-item">
+            <div class="faq-question">
+                What services do you provide?
+                <span class="icon">+</span>
+            </div>
+            <div class="faq-answer">
+                We provide fire safety training, inspections, testing of fire protection systems,
+                engineering certifications, building compliance verification, and consultancy services.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                Do you offer fire safety training programs?
+                <span class="icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Yes, we offer professional training in fire, life safety, and security tailored for industries and individuals.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                Are trainings onsite or online?
+                <span class="icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Trainings are available in classroom, onsite, and virtual formats depending on requirements.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                Do your courses follow international standards?
+                <span class="icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Yes, all programs align with NFPA, IFE, NICET, OSHA, and other global standards.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                Do you provide inspection services?
+                <span class="icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Yes, we conduct inspections, testing, and compliance verification for safety systems.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                Do you offer consultancy services?
+                <span class="icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Yes, including design review, risk assessment, technical reports, and compliance evaluation.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                Who are your clients?
+                <span class="icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Industrial facilities, commercial buildings, infrastructure projects, and consultants.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                Do you customize services?
+                <span class="icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Yes, everything is tailored based on project scope and requirements.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                How can I request a quotation?
+                <span class="icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Use the contact form, email, or phone. Our team will respond quickly.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                Do you provide post-training support?
+                <span class="icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Yes, we provide continued guidance after training and inspections.
+            </div>
+        </div>
+
+    </div>
+
+    <div class="contact-box">
+        Still have questions? Contact our team for expert guidance and support.
+    </div>
+
+</div>
+
+<script>
+    const items = document.querySelectorAll(".faq-item");
+
+    items.forEach(item => {
+        item.addEventListener("click", () => {
+            item.classList.toggle("active");
+        });
+    });
+</script>
+
+</body>
+</html>
