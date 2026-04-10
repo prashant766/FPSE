@@ -7,6 +7,10 @@ document.addEventListener('DOMContentLoaded', function() {
     initDropdowns();
     filterCourses();
     initLanguageSwitcher();
+
+    // 🔥 ADD THIS (SAFE INIT)
+    initFeedbackForm();
+    initStarRating();
 });
 
 /* ============================================
@@ -142,55 +146,56 @@ window.addEventListener('resize', function() {
 });
 
 /* ============================================
-   FEEDBACK SYSTEM (FINAL FIXED VERSION)
+   ⭐ STAR RATING SYSTEM (SAFE)
    ============================================ */
 
-// SAVE FEEDBACK
-document.getElementById("feedbackForm")?.addEventListener("submit", function(e) {
-    e.preventDefault();
+function initStarRating() {
+    const stars = document.querySelectorAll("#starRating span");
+    const ratingInput = document.getElementById("rating");
 
-    const name = document.getElementById("name").value;
-    const feedback = document.getElementById("feedback").value;
+    if (!stars.length || !ratingInput) return;
 
-    let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+    stars.forEach((star) => {
+        star.addEventListener("click", () => {
+            const selectedRating = star.getAttribute("data-value");
+            ratingInput.value = selectedRating;
 
-    // FIFO (max 5)
-    if (reviews.length >= 8) {
-        reviews.shift();
-    }
+            stars.forEach(s => s.classList.remove("active"));
 
-    reviews.push({ name, feedback });
-
-    localStorage.setItem("reviews", JSON.stringify(reviews));
-
-alert("Feedback submitted successfully!");
-this.reset();});
-
-// DISPLAY REVIEWS
-function loadReviews() {
-    const container = document.getElementById("reviewsContainer");
-    if (!container) return;
-
-    let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
-
-    container.innerHTML = "";
-
-    reviews.forEach(r => {
-
-        if (!r.name || !r.feedback) return;
-
-        container.innerHTML += `
-            <div class="gallery-item">
-                <img src="profile_icon.png">
-
-                <div style="padding:15px;">
-                    <h3>${r.name}</h3>
-                    <p style="color:#2a8c7d; font-weight:600;">Student</p>
-                    <p>"${r.feedback}"</p>
-                </div>
-            </div>
-        `;
+            for (let i = 0; i < selectedRating; i++) {
+                stars[i].classList.add("active");
+            }
+        });
     });
 }
 
-window.addEventListener("load", loadReviews);
+/* ============================================
+   🔥 FEEDBACK FORM SUBMIT (YOUR FEATURE)
+   ============================================ */
+
+function initFeedbackForm() {
+    const form = document.getElementById("feedbackForm");
+    if (!form) return;
+
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const course = document.getElementById("course").value;
+        const feedback = document.getElementById("feedback").value;
+        const rating = document.getElementById("rating").value;
+
+        let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+
+        reviews.push({ name, course, feedback, rating });
+
+        localStorage.setItem("reviews", JSON.stringify(reviews));
+
+        alert("Feedback submitted successfully!");
+
+        this.reset();
+
+        // reset stars
+        document.querySelectorAll("#starRating span").forEach(s => s.classList.remove("active"));
+    });
+}

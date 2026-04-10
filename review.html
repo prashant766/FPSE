@@ -1,17 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Consultancy</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reviews</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+.review-section {
+    padding: 80px 20px;
+    background: #f5f7f8;
+}
+
+.review-container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.review-title {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.review-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.review-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+}
+
+.review-card h3 {
+    margin-bottom: 5px;
+}
+
+.course {
+    font-size: 13px;
+    color: #2a8c7d;
+    margin-bottom: 10px;
+}
+
+.stars {
+    color: #ffc107;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.review-text {
+    font-size: 14px;
+    color: #555;
+}
+</style>
+
 </head>
 
 <body>
 
-<div id="google_translate_element"></div>
-
-<!-- HEADER -->
+<!-- 🔥 NAVBAR (FROM INDEX) -->
 <header class="header">
     <div class="header-container">
 
@@ -19,11 +75,15 @@
             <img src="logo2.png" alt="FPSE Logo" class="logo-img">
         </div>
 
-        <nav class="nav-menu">
+        <button id="mobileMenuToggle" class="mobile-menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
 
+        <nav class="nav-menu">
             <a href="index.html" class="nav-link">HOME</a>
 
-            <!-- ABOUT -->
             <div class="nav-item dropdown">
                 <a href="about.html" class="nav-link">ABOUT US</a>
                 <div class="dropdown-menu">
@@ -33,16 +93,12 @@
                 </div>
             </div>
 
-            <!-- TRAINING -->
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link">TRAINING ▾</a>
-
                 <div class="dropdown-menu">
-
                     <div class="dropdown-item">
-                        <span class="dropdown-link">Courses ▶</span>
-
-                     <div class="sub-dropdown">
+                        <a href="#" class="dropdown-link">Courses ▶</a>
+                       <div class="sub-dropdown">
 
                            <a href="nfpa.html" class="nfpa-link">
     <img src="NFPALOGO.png" alt="NFPA" class="nfpa-icon">
@@ -82,16 +138,14 @@ NICET PREPRATION COURSES </a>
                 
                         </div>
                     </div>
-
                     <a href="facilities.html" class="dropdown-link">Facilities</a>
-
                 </div>
             </div>
 
-            <a href="consultancy.html" class="nav-link active">CONSULTANCY</a>
+            <a href="consultancy.html" class="nav-link">CONSULTANCY</a>
             <a href="directory.html" class="nav-link">DIRECTORY</a>
+          
             <a href="contact.html" class="nav-link">CONTACT</a>
-
         </nav>
 
         <div class="header-actions">
@@ -101,38 +155,45 @@ NICET PREPRATION COURSES </a>
     </div>
 </header>
 
-<section class="consultancy-section">
-    <div class="container">
-        <h1>Consultancy Services</h1>
-        <p>
-            We provide expert fire safety consultancy, risk assessment, compliance audits,
-            and engineering solutions for industries and organizations.
-        </p>
+<!-- 🔥 REVIEW SECTION -->
+<section class="review-section">
+    <div class="review-container">
 
-        <div class="consultancy-cards">
-            <div class="card">
-                <h3>Fire Safety Audit</h3>
-                <p>Complete inspection and compliance checks.</p>
-            </div>
+        <h2 class="review-title">Alumini Reviews</h2>
 
-            <div class="card">
-                <h3>Risk Assessment</h3>
-                <p>Identify hazards and improve safety measures.</p>
-            </div>
+        <div class="review-grid" id="reviewContainer"></div>
 
-            <div class="card">
-                <h3>System Design</h3>
-                <p>Design fire protection systems for buildings.</p>
-            </div>
-        </div>
     </div>
 </section>
 
-<!-- ADD CONTENT -->
-<section style="padding:50px; color:white;">
-    <h1>Consultancy Services</h1>
-    <p>This is your consultancy page. Now it will show properly.</p>
-</section>
+<!-- 🔥 REVIEW SCRIPT -->
+<script>
+const container = document.getElementById("reviewContainer");
+
+let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+
+if (reviews.length === 0) {
+    container.innerHTML = "<p style='text-align:center;'>No reviews yet.</p>";
+} else {
+    reviews.reverse().forEach(r => {
+
+        const rating = r.rating || 0; // safety fix
+        const stars = "★".repeat(rating) + "☆".repeat(5 - rating);
+
+        container.innerHTML += `
+            <div class="review-card">
+                <h3>${r.name}</h3>
+                <div class="course">Student</div>
+                <div class="stars">${stars}</div>
+                <p class="review-text">"${r.feedback}"</p>
+            </div>
+        `;
+    });
+}
+</script>
+
+<!-- 🔥 YOUR MAIN JS -->
+<script src="script_updated.js"></script>
 
 </body>
 </html>

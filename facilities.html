@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facilities</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f7f8;
+}
+
+/* SECTION */
+.facilities-section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.facilities-title {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.facilities-sub {
+    color: #666;
+    margin-bottom: 50px;
+}
+
+/* GRID */
+.facilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* CARD */
+.facility-card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: 0.3s;
+    text-align: left;
+    position: relative;
+}
+
+/* HOVER */
+.facility-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* ICON */
+.facility-icon {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+/* TITLE */
+.facility-card h3 {
+    margin-bottom: 8px;
+}
+
+/* LOCATION */
+.location {
+    color: #2a8c7d;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* PREMIUM BORDER */
+.facility-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    padding: 1px;
+    background: linear-gradient(135deg, #2a8c7d, transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- 🔥 NAVBAR -->
+<header class="header">
+    <div class="header-container">
+
+        <div class="logo-section">
+            <img src="logo2.png" alt="FPSE Logo" class="logo-img">
+        </div>
+
+        <button id="mobileMenuToggle" class="mobile-menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="nav-menu">
+            <a href="index.html" class="nav-link">HOME</a>
+
+            <div class="nav-item dropdown">
+                <a href="about.html" class="nav-link">ABOUT US</a>
+                <div class="dropdown-menu">
+                    <a href="about.html#team" class="dropdown-link">Our Team</a>
+                    <a href="about.html#mission" class="dropdown-link">Mission & Vision</a>
+                    <a href="about.html#gallery" class="dropdown-link">Gallery</a>
+                </div>
+            </div>
+
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link">TRAINING ▾</a>
+                <div class="dropdown-menu">
+                    <div class="dropdown-item">
+                        <a href="#" class="dropdown-link">Courses ▶</a>
+                         <div class="sub-dropdown">
+
+                           <a href="nfpa.html" class="nfpa-link">
+    <img src="NFPALOGO.png" alt="NFPA" class="nfpa-icon">
+    NFPA CERTIFICATION COURSES
+</a>
+</a>
+                                 <a href="fire.html" class="nfpa-link">
+    <img src="NFPALOGO.png" alt="NFPA" class="nfpa-icon">
+NFPA FIRE PROTECTION & LIFE SAFETY SYSTEMS TRAINING COURSES
+</a>
+                            
+                           <a href="ife.html" class="nfpa-link">
+    <img src="IFELOGO.png" alt="NFPA" class="nfpa-icon">
+IFE PREPRATION COURSES </a>
+
+
+                            <a href="nfpa.html" class="nfpa-link">
+    <img src="NICETLOGO.png" alt="NFPA" class="nfpa-icon">
+NICET PREPRATION COURSES </a>
+
+
+ <a href="icc.html" class="nfpa-link">
+    <img src="ICCLOGO.png" alt="NFPA" class="nfpa-icon"> ICC INTERNATIONAL CODE COUNSIL PREPRATION COURSES </a>
+
+                             <a href="safety.html" class="nfpa-link">
+    <img src="SECURITYLOGO.png" alt="NFPA" class="nfpa-icon"> Security & Safety Systems-Based courses </a>
+
+<a href="computer.html" class="nfpa-link">
+    <img src="COMPUTERLOGO.png" alt="NFPA" class="nfpa-icon"> Computer-Based Courses & Digital Skills Training </a>
+
+
+    
+    <a href="international.html" class="nfpa-link">
+    <img src="INTERLOGO.png" alt="NFPA" class="nfpa-icon"> International Certifications </a>
+
+
+                
+                        </div>
+                    </div>
+                    <a href="facilities.html" class="dropdown-link">Facilities</a>
+                </div>
+            </div>
+
+            <a href="consultancy.html" class="nav-link">CONSULTANCY</a>
+            <a href="directory.html" class="nav-link">DIRECTORY</a>
+            <a href="review.html" class="nav-link">REVIEWS</a>
+            <a href="contact.html" class="nav-link">CONTACT</a>
+        </nav>
+
+        <div class="header-actions">
+            <a href="register.html" class="register-btn">REGISTER →</a>
+        </div>
+
+    </div>
+</header>
+
+<!-- 🔥 FACILITIES -->
+<section class="facilities-section">
+
+    <h1 class="facilities-title">Our Offices</h1>
+    <p class="facilities-sub">We are present across multiple locations to serve you better</p>
+
+    <div class="facilities-grid">
+
+        <div class="facility-card">
+            <div class="facility-icon">📍</div>
+            <h3>Surajpur</h3>
+            <div class="location">Greater Noida, Uttar Pradesh</div>
+        </div>
+
+        <div class="facility-card">
+            <div class="facility-icon">📍</div>
+            <h3>Wazirabad</h3>
+            <div class="location">Delhi</div>
+        </div>
+
+        <div class="facility-card">
+            <div class="facility-icon">📍</div>
+            <h3>Bareilly</h3>
+            <div class="location">Uttar Pradesh, India</div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- 🔥 JS -->
+<script src="script_updated.js"></script>
+
+</body>
+</html>
