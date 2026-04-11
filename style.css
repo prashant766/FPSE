@@ -5667,3 +5667,525 @@ html {
 .hero-bg.active {
     opacity: 1;
 }
+
+.carousel-container {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-track {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.carousel-img {
+    position: absolute;
+    width: 60%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.carousel-img.active {
+    opacity: 1;
+}
+
+
+
+.carousel-item {
+    min-width: 100%;
+    height: 350px;
+    object-fit: contain;
+    background: #000;
+}
+
+.carousel-wrapper {
+    width: 60%;   /* reduce width */
+    margin: 50px auto;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+
+.carousel-item {
+    min-width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+.carousel-item:hover {
+    transform: scale(1.02);
+}
+
+
+
+
+/* ===== DIRECTORY SLIDER ===== */
+
+.directory-slider {
+    width: 100%;
+    padding: 60px 0;
+    background: #f5f5f5;
+}
+
+.slider-container {
+    width: 70%;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.6s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+/* Buttons */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    border: none;
+    padding: 12px 18px;
+    font-size: 22px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.slider-btn.prev {
+    left: 10px;
+}
+
+.slider-btn.next {
+    right: 10px;
+}
+
+
+
+/* SLIDER CONTAINER */
+.slider-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+/* TRACK */
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+/* EACH IMAGE */
+.slide {
+    min-width: 100%;
+    height: 400px; /* adjust if needed */
+    object-fit: cover;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.slider-container {
+    width: 70%;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+
+.slide {
+    border: 5px solid red;
+}
+
+
+/*new css for our team section 
+*/
+/* =========================
+   TEAM V2 SECTION
+========================= */
+
+.teamV2 {
+    padding: 60px 20px;
+}
+
+/* GRID */
+.teamV2-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+/* CARD */
+.teamV2-card {
+    perspective: 1000px;
+}
+
+/* INNER */
+.teamV2-inner {
+    position: relative;
+    width: 100%;
+    height: 380px; /* reduced height */
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+}
+
+/* FLIP */
+.teamV2-card:hover .teamV2-inner {
+    transform: rotateY(180deg);
+}
+
+/* FRONT & BACK */
+.teamV2-front,
+.teamV2-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    backface-visibility: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    background: #fff;
+    color: #111;
+    display: flex;
+    flex-direction: column;
+}
+
+/* FRONT */
+.teamV2-front img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;   /* 🔥 FULL IMAGE visible */
+    object-position: center;
+    background: #f5f5f5;   /* fills empty space nicely */
+}
+
+.teamV2-front h3 {
+    margin: 10px 12px 5px;
+    font-size: 18px;
+}
+
+.teamV2-front p {
+    margin: 0 12px 10px;
+    font-size: 14px;
+    line-height: 1.4;
+
+    display: -webkit-box;
+
+    -webkit-line-clamp: 3;  /* for Chrome */
+    line-clamp: 3;          /* 🔥 add this (standard) */
+
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* BACK */
+.teamV2-back {
+    transform: rotateY(180deg);
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.teamV2-back h3 {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.teamV2-back ul {
+    padding-left: 18px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* SCROLLBAR */
+.teamV2-back::-webkit-scrollbar {
+    width: 4px;
+}
+
+.teamV2-back::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 10px;
+}
+
+/* SPECIAL IMAGE FIX */
+.teamV2-front .asif-img {
+    object-fit: contain;
+    background: #f5f5f5;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .teamV2-inner {
+        height: 340px;
+    }
+}
+
+.teamV2-front {
+    justify-content: flex-start;
+}
+
+.teamV2-front img[src*="Ahmed_Anwar_Albarak"] {
+    object-position: 50% 20%;
+}
+
+/* BACK SIDE STYLE (only when flipped) */
+.teamV2-back {
+    transform: rotateY(180deg);
+    padding: 15px;
+    overflow-y: auto;
+
+    background: #8B0000; /* 🔥 dark red */
+    color: #fff;         /* white text */
+}
+
+.teamV2-back h3 {
+    color: #fff;
+}
+
+.teamV2-back ul {
+    color: #f5f5f5;
+}
+
+.teamV2-back {
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.3);
+}
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 90px; /* 🔥 move above chatbot */
+    right: 20px;
+    z-index: 999;
+}
+
+.whatsapp-float img {
+    width: 55px;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover img {
+    transform: scale(1.1);
+}
+
+
+.teamV2-card {
+    perspective: 1000px;
+    border-radius: 18px;
+}
+
+/* PREMIUM BORDER EFFECT */
+.teamV2-front,
+.teamV2-back {
+    border: 2px solid #8B0000; /* dark red */
+    box-shadow: 
+        0 8px 20px rgba(0,0,0,0.2),
+        0 0 10px rgba(139, 0, 0, 0.25); /* soft glow */
+}
+
+.teamV2-card:hover .teamV2-front,
+.teamV2-card:hover .teamV2-back {
+    box-shadow: 
+        0 12px 30px rgba(0,0,0,0.3),
+        0 0 18px rgba(139, 0, 0, 0.5);
+}
+
+.teamV2-front img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    background: #f5f5f5;
+}
+
+
+.social-icons {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.social-icons img {
+    width: 28px;
+    height: 28px;
+    filter: brightness(0) invert(1); /* white icons */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.social-icons img:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
+}
+
+
+.footer-inner {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* only 2 columns now */
+    gap: 40px;
+}
+
+
+.footer-full {
+    background: #000;
+    padding: 35px 40px;   /* 🔥 reduce from 60px */
+}
+
+.footer-inner {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;            /* 🔥 reduce spacing */
+}
+
+.footer-col p,
+.footer-col a {
+    margin-bottom: 6px;   /* 🔥 tighter spacing */
+    font-size: 14px;
+}
+
+.social-icons img {
+    width: 22px;
+    height: 22px;
+    filter: invert(1); /* clean white */
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    align-items: center;
+}
+
+
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 13px;
+    opacity: 0.7;
+}
+
+.premium-services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    padding: 50px 20px;
+}
+
+/* LIGHT PREMIUM CARD */
+.service-chip {
+    background: #ffffff;
+    color: #111;
+    padding: 16px 18px;
+    border-radius: 14px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    border: 1px solid #eee;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+
+    transition: all 0.3s ease;
+}
+
+/* 🔥 HOVER = PREMIUM FEEL */
+.service-chip:hover {
+    transform: translateY(-5px);
+    border-color: #ff2e2e;
+
+    box-shadow: 
+        0 10px 25px rgba(0,0,0,0.1),
+        0 0 0 1px rgba(255, 46, 46, 0.2);
+}
+
+
+
+.gallery-section {
+    background: #f8f9fb;
+}
+
+
+
+.image-showcase {
+    padding: 60px 20px;
+    background: #f9f9f9;
+}
+
+.showcase-container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* BIG IMAGE */
+.big-image img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+/* GRID */
+.small-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);  /* was 5 */
+    gap: 18px; /* was 12 */
+}
+
+.small-grid img {
+    width: 100%;
+    height: 180px; /* was 120 */
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* HOVER (subtle premium feel) */
+.small-grid img:hover {
+    transform: scale(1.05);
+}
+
+
+

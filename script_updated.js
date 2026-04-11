@@ -7,33 +7,90 @@ document.addEventListener('DOMContentLoaded', function() {
     initDropdowns();
     filterCourses();
     initLanguageSwitcher();
-
-    // 🔥 ADD THIS (SAFE INIT)
     initFeedbackForm();
     initStarRating();
+
+    // 🔥 HERO SLIDER (SAFE)
+    initHeroSlider();
+
+    // 🔥 DIRECTORY SLIDER (FIXED)
+    initDirectorySlider();
 });
 
 /* ============================================
-   LANGUAGE SWITCHER
+   HERO SLIDER (FIXED)
+   ============================================ */
+
+function initHeroSlider() {
+    const slides = document.querySelectorAll(".hero-bg");
+    if (!slides.length) return;
+
+    let index = 0;
+
+    setInterval(() => {
+        slides[index].classList.remove("active");
+        index = (index + 1) % slides.length;
+        slides[index].classList.add("active");
+    }, 5000);
+}
+
+/* ============================================
+   DIRECTORY SLIDER (FIXED)
+   ============================================ */
+
+function initDirectorySlider() {
+    const track = document.querySelector(".slider-track");
+    const slides = document.querySelectorAll(".slide");
+    const prev = document.querySelector(".slider-btn.prev");
+    const next = document.querySelector(".slider-btn.next");
+
+    if (!track || slides.length === 0) return;
+
+    let i = 0;
+
+    function update() {
+        track.style.transform = `translateX(-${i * 100}%)`;
+    }
+
+    // Ensure first image visible
+    update();
+
+    if (next) {
+        next.addEventListener("click", () => {
+            i = (i + 1) % slides.length;
+            update();
+        });
+    }
+
+    if (prev) {
+        prev.addEventListener("click", () => {
+            i = (i - 1 + slides.length) % slides.length;
+            update();
+        });
+    }
+
+    setInterval(() => {
+        i = (i + 1) % slides.length;
+        update();
+    }, 5000);
+}
+
+/* ============================================
+   REST OF YOUR CODE (UNCHANGED)
    ============================================ */
 
 function initLanguageSwitcher() {
     const langSwitch = document.querySelector('.lang-switch');
-    
     if (langSwitch) {
         const saved = localStorage.getItem('language') || 'en';
         switchLanguage(saved);
         langSwitch.value = saved;
-        
+
         langSwitch.addEventListener('change', function(e) {
             switchLanguage(e.target.value);
         });
     }
 }
-
-/* ============================================
-   MOBILE MENU
-   ============================================ */
 
 function initMobileMenu() {
     const mobileMenuToggle = document.getElementById('mobileMenuToggle');
@@ -60,16 +117,12 @@ function initMobileMenu() {
     });
 }
 
-/* ============================================
-   DROPDOWNS
-   ============================================ */
-
 function initDropdowns() {
     const dropdownItems = document.querySelectorAll('.nav-item.dropdown');
 
     dropdownItems.forEach(item => {
         const link = item.querySelector('.nav-link');
-        
+
         link.addEventListener('click', function(e) {
             if (window.innerWidth <= 768) {
                 e.preventDefault();
@@ -90,7 +143,7 @@ function initDropdowns() {
 function toggleDropdown(element) {
     const parent = element.parentElement;
     const siblings = parent.querySelectorAll('.nav-item.dropdown');
-    
+
     siblings.forEach(sibling => {
         if (sibling !== element) {
             sibling.classList.remove('active');
@@ -99,10 +152,6 @@ function toggleDropdown(element) {
 
     element.classList.toggle('active');
 }
-
-/* ============================================
-   COURSE FILTERING
-   ============================================ */
 
 function filterCourses() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -113,27 +162,20 @@ function filterCourses() {
 
     const courseCards = coursesGrid.querySelectorAll('.course-card');
 
-    if (courseType) {
-        courseCards.forEach(card => {
-            const cardType = card.getAttribute('data-type');
-            card.style.display = cardType === courseType ? 'block' : 'none';
-        });
-    } else {
-        courseCards.forEach(card => {
+    courseCards.forEach(card => {
+        if (!courseType || card.getAttribute('data-type') === courseType) {
             card.style.display = 'block';
-        });
-    }
+        } else {
+            card.style.display = 'none';
+        }
+    });
 }
-
-/* ============================================
-   RESPONSIVE RESET
-   ============================================ */
 
 window.addEventListener('resize', function() {
     if (window.innerWidth > 768) {
         const navMenu = document.querySelector('.nav-menu');
         const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        
+
         if (navMenu && mobileMenuToggle) {
             navMenu.classList.remove('active');
             mobileMenuToggle.classList.remove('active');
@@ -144,10 +186,6 @@ window.addEventListener('resize', function() {
         });
     }
 });
-
-/* ============================================
-   ⭐ STAR RATING SYSTEM (SAFE)
-   ============================================ */
 
 function initStarRating() {
     const stars = document.querySelectorAll("#starRating span");
@@ -168,10 +206,6 @@ function initStarRating() {
         });
     });
 }
-
-/* ============================================
-   🔥 FEEDBACK FORM SUBMIT (YOUR FEATURE)
-   ============================================ */
 
 function initFeedbackForm() {
     const form = document.getElementById("feedbackForm");
@@ -195,20 +229,12 @@ function initFeedbackForm() {
 
         this.reset();
 
-        // reset stars
         document.querySelectorAll("#starRating span").forEach(s => s.classList.remove("active"));
     });
 }
 
 
 
-const slides = document.querySelectorAll(".hero-bg");
-let index = 0;
 
-setInterval(() => {
-    slides[index].classList.remove("active");
 
-    index = (index + 1) % slides.length;
 
-    slides[index].classList.add("active");
-}, 5000);

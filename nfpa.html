@@ -3,12 +3,154 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NFPA Courses - FASE</title>
+<title>NFPA Courses - FPSE</title>
+
+<style>
+
+/* RESET */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f8f9fb;
+}
+
+/* SECTION */
+.main-section {
+    padding: 50px 20px;
+}
+
+.nfpa-container {
+    max-width: 900px;
+    margin: auto;
+}
+
+/* TITLE */
+h1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #d32f2f;
+}
+
+.nfpa-logo {
+    width: 40px;
+}
+
+.nfpa-subtext {
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* 🔥 ACCORDION */
+.accordion-item {
+    background: #fff;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    border-left: 4px solid #d32f2f;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.accordion-header {
+    padding: 18px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+}
+
+/* + ICON */
+.icon {
+    font-size: 22px;
+    transition: 0.3s ease;
+}
+
+/* CONTENT */
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.4s ease;
+    padding: 0 18px;
+}
+
+/* ADD THIS */
+.accordion-item.active .accordion-content {
+    padding: 15px 18px 20px;
+}
+
+.accordion-content ul {
+    padding-left: 20px;
+    margin: 10px 0;
+}
+
+.accordion-content li {
+    margin-bottom: 8px;
+}
+/* ACTIVE STATE */
+.accordion-item.active {
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 500px;
+}
+
+.accordion-item.active .icon {
+    content: "-";
+}
+
+/* BUTTON */
+.enroll-btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 25px;
+    background: #d32f2f;
+    color: #fff;
+    border-radius: 30px;
+    text-decoration: none;
+}
+/* FORCE LEFT ALIGN (FIX BROKEN INDENTATION) */
+.accordion-content {
+    text-align: left;
+}
+
+.accordion-content ul {
+    text-align: left;
+}
+
+.accordion-content li {
+    text-align: left;
+}
+.accordion-content ul {
+    padding-left: 25px;
+    margin: 10px 0;
+}
+</style>
+
 <link rel="stylesheet" href="style.css">
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,ar',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+    </script>
+
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 
 <body>
 
+<div id="google_translate_element"></div>
+</head>
+
+
+<body>
+<!-- HEADER -->
 <header class="header">
     <div class="header-container">
 
@@ -19,22 +161,33 @@
     <span class="brand-name"></span>
 </div>
 
+        <!-- 🔥 MOBILE MENU BUTTON (ADDED) -->
+        <button id="mobileMenuToggle" class="mobile-menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
 
-        <!-- ✅ FULL NAVBAR (FIXED) -->
+        <!-- NAVBAR -->
         <nav class="nav-menu">
-
             <a href="index.html" class="nav-link">HOME</a>
 
-            <!-- TRAINING DROPDOWN -->
+            <div class="nav-item dropdown">
+                <a href="about.html" class="nav-link">ABOUT US</a>
+                <div class="dropdown-menu">
+                    <a href="about.html#team" class="dropdown-link">Our Team</a>
+                    <a href="about.html#mission" class="dropdown-link">Mission & Vision</a>
+                    <a href="about.html#gallery" class="dropdown-link">Gallery</a>
+                </div>
+            </div>
+
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link">TRAINING ▾</a>
-
                 <div class="dropdown-menu">
-
                     <div class="dropdown-item">
-                        <span class="dropdown-link">Courses ▶</span>
+                        <a href="#" class="dropdown-link course-toggle">Courses ▶</a>
 
-                         <div class="sub-dropdown">
+                        <div class="sub-dropdown">
 
                            <a href="nfpa.html" class="nfpa-link">
     <img src="NFPALOGO.png" alt="NFPA" class="nfpa-icon">
@@ -73,48 +226,232 @@ NICET PREPRATION COURSES </a>
 
                 
                         </div>
+
                     </div>
-
                     <a href="facilities.html" class="dropdown-link">Facilities</a>
-
                 </div>
             </div>
 
+            <a href="consultancy.html" class="nav-link">CONSULTANCY</a>
+            <a href="directory.html" class="nav-link">DIRECTORY</a>
+            <a href="contact.html" class="nav-link">CONTACT</a>
         </nav>
+
+        <!-- BUTTON -->
+        <div class="header-actions">
+            <a href="register.html" class="register-btn">REGISTER →</a>
+        </div>
 
     </div>
 </header>
+   
 
-<!-- ✅ MAIN CONTENT -->
 <section class="main-section">
+<div class="nfpa-container">
 
-    <div class="nfpa-container">
-
-       <h1>
-    <img src="NFPALOGO.png" alt="NFPA Logo" class="nfpa-logo">
-    NFPA Certification Courses
+<h1>
+<img src="NFPALOGO.png" class="nfpa-logo">
+NFPA Certification Courses
 </h1>
 
-        <p class="nfpa-subtext">
-            Advance your career with globally recognized fire protection certifications.
-        </p>
+<p class="nfpa-subtext">
+Advance your career with globally recognized fire protection certifications.
+</p>
 
-        <ul class="nfpa-list">
-            <li>Certified Fire Protection Specialist (CFPS)</li>
-            <li>Certified Fire Inspector (CFI)</li>
-            <li>Certified Fire Inspector I (CFI-I)</li>
-            <li>Certified Fire Inspector II (CFI-II)</li>
-            <li>Certified Fire Plan Examiner (CFPE)</li>
-            <li>Certified Fire Alarm ITM Specialist (CFAITMS)</li>
-            <li>Certified Hazard Recognition Specialist (CHRS)</li>
-            <li>Water-Based Fire Protection ITM (WBITM)</li>
-        </ul>
+<div class="accordion">
 
-        <a href="register.html" class="enroll-btn">🚀 Enroll Now</a>
+<!-- CFPS -->
+<div class="accordion-item">
+<div class="accordion-header">
+Certified Fire Protection Specialist (CFPS)
+<span class="icon">+</span>
+</div>
+<div class="accordion-content">
+<ul>
+<li>Globally recognized certification in fire protection & prevention</li>
+<li>Supports career growth, promotions & salary increases</li>
+<li>Gold standard credential in fire industry</li>
+<li>Based on Fire Protection Handbook (21st Edition)</li>
+<li>Exam: 3-hour, open-book, 100 MCQs</li>
+<li>Conducted worldwide via Prometric</li>
+</ul>
+</div>
+</div>
+
+<!-- CFI -->
+<div class="accordion-item">
+<div class="accordion-header">
+Certified Fire Inspector (CFI)
+<span class="icon">+</span>
+</div>
+<div class="accordion-content">
+<ul>
+<li>Validates fire inspection & code enforcement competence</li>
+<li>Based on NFPA 1030 standards</li>
+<li>Covers NFPA 1, 13, 25, 72, 101</li>
+<li>Exam: 3-hour, open-book, 72 MCQs</li>
+<li>Conducted globally at Prometric centers</li>
+</ul>
+</div>
+</div>
+
+<!-- CFI-I -->
+<div class="accordion-item">
+<div class="accordion-header">
+Certified Fire Inspector I (CFI-I)
+<span class="icon">+</span>
+</div>
+<div class="accordion-content">
+<ul>
+<li>Basic fire inspection certification (NFPA 1031)</li>
+<li>For inspectors, contractors & safety professionals</li>
+<li>Exam: 4-hour, open-book, 100 MCQs</li>
+<li>Requires practicum approval</li>
+</ul>
+</div>
+</div>
+
+<!-- CFI-II -->
+<div class="accordion-item">
+<div class="accordion-header">
+Certified Fire Inspector II (CFI-II)
+<span class="icon">+</span>
+</div>
+<div class="accordion-content">
+<ul>
+<li>Advanced inspection certification</li>
+<li>Requires CFI-I</li>
+<li>Exam: 4-hour, open-book</li>
+<li>Recognized globally</li>
+</ul>
+</div>
+</div>
+
+<!-- CFPE -->
+<div class="accordion-item">
+<div class="accordion-header">
+Certified Fire Plan Examiner (CFPE)
+<span class="icon">+</span>
+</div>
+<div class="accordion-content">
+<ul>
+<li>Focus on fire plan review & compliance</li>
+<li>Based on NFPA codes</li>
+<li>Exam: 3-hour, open-book</li>
+<li>Used by engineers & consultants</li>
+</ul>
+</div>
+</div>
+
+<!-- CFAITMS -->
+<div class="accordion-item">
+<div class="accordion-header">
+Certified Fire Alarm ITM Specialist (CFAITMS)
+<span class="icon">+</span>
+</div>
+<div class="accordion-content">
+<ul>
+<li>Focus on fire alarm inspection & maintenance</li>
+<li>Based on NFPA 72</li>
+<li>Exam: 3-hour, open-book</li>
+</ul>
+</div>
+</div>
+
+<!-- CHRS -->
+<div class="accordion-item">
+<div class="accordion-header">
+Certified Hazard Recognition Specialist (CHRS)
+<span class="icon">+</span>
+</div>
+<div class="accordion-content">
+<ul>
+<li>Focus on hazard recognition</li>
+<li>Based on NFPA 101</li>
+<li>Exam: 3-hour, open-book</li>
+</ul>
+</div>
+</div>
+
+<!-- WBITM -->
+<div class="accordion-item">
+<div class="accordion-header">
+Water-Based Fire Protection ITM (WBITM)
+<span class="icon">+</span>
+</div>
+<div class="accordion-content">
+<ul>
+<li>Inspection & maintenance of water systems</li>
+<li>Based on NFPA 25</li>
+<li>Exam: 2.5-hour, open-book</li>
+</ul>
+</div>
+</div>
+
+</div>
+
+<a href="register.html" class="enroll-btn">🚀 Enroll Now</a>
+
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-full">
+    <div class="footer-inner">
+        
+        <div class="footer-col">
+            <h3>CONTACT</h3>
+            <p>Phone: IND +91 7906715056</p>
+            <p>Phone: KSA +966 568382634</p>
+            <p>Email: info@FPSengineering.in</p>
+            <p>Email: infoFPSengineering@gmail.com</p>
+        </div>
+
+        <div class="footer-col">
+            <h3>LINKS</h3>
+            
+            <a href="index.html">Home</a>
+            <a href="faq.html">FAQ</a>
+            <a href="review.html">Reviews</a>
+
+            <div class="social-icons">
+                <a href="https://linkedin.com" target="_blank">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn">
+                </a>
+
+                <a href="https://youtube.com" target="_blank">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube">
+                </a>
+            </div>
+        </div>
 
     </div>
 
-</section>
+    <div class="footer-bottom">
+        © 2026 FPSE. All Rights Reserved.
+    </div>
+</footer>
+
+<script>
+document.querySelectorAll(".accordion-header").forEach(header => {
+    header.addEventListener("click", () => {
+
+        const item = header.parentElement;
+
+        document.querySelectorAll(".accordion-item").forEach(i => {
+            if (i !== item) {
+                i.classList.remove("active");
+                i.querySelector(".icon").textContent = "+";
+            }
+        });
+
+        item.classList.toggle("active");
+
+        const icon = header.querySelector(".icon");
+        icon.textContent = item.classList.contains("active") ? "−" : "+";
+    });
+});
+</script>
 
 </body>
 </html>

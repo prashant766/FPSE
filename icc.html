@@ -5,33 +5,148 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ICC Courses - FASE</title>
 <link rel="stylesheet" href="style.css">
+
+<style>
+
+/* PAGE */
+.main-section {
+    padding: 120px 20px 50px;
+}
+
+.nfpa-container {
+    max-width: 900px;
+    margin: auto;
+}
+
+/* TITLE */
+h1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #d32f2f;
+}
+
+.nfpa-logo {
+    width: 40px;
+}
+
+.nfpa-subtext {
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* ACCORDION */
+.accordion-item {
+    background: #fff;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    border-left: 4px solid #d32f2f;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+.accordion-header {
+    padding: 18px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon {
+    font-size: 20px;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.4s ease;
+    padding: 0 18px;
+    text-align: left;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 800px;
+    padding: 15px 18px;
+}
+
+/* LIST */
+.accordion-content ul {
+    padding-left: 25px;
+}
+
+.accordion-content li {
+    margin-bottom: 8px;
+}
+
+.enroll-btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 25px;
+    background: #d32f2f;
+    color: #fff;
+    border-radius: 30px;
+    text-decoration: none;
+}
+
+</style>
+
+</head>
+
+<link rel="stylesheet" href="style.css">
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,ar',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+    </script>
+
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 
 <body>
 
+<div id="google_translate_element"></div>
+<body>
+<!-- HEADER -->
 <header class="header">
     <div class="header-container">
 
-         <div class="logo-section">
+        <div class="logo-section">
     <a href="index.html">
         <img src="logo2.png" alt="FPSE Logo" class="logo-img">
     </a>
     <span class="brand-name"></span>
 </div>
 
+        <!-- 🔥 MOBILE MENU BUTTON (ADDED) -->
+        <button id="mobileMenuToggle" class="mobile-menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
 
-        <!-- ✅ FULL NAVBAR -->
+        <!-- NAVBAR -->
         <nav class="nav-menu">
-
             <a href="index.html" class="nav-link">HOME</a>
 
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link">TRAINING ▾</a>
-
+                <a href="about.html" class="nav-link">ABOUT US</a>
                 <div class="dropdown-menu">
+                    <a href="about.html#team" class="dropdown-link">Our Team</a>
+                    <a href="about.html#mission" class="dropdown-link">Mission & Vision</a>
+                    <a href="about.html#gallery" class="dropdown-link">Gallery</a>
+                </div>
+            </div>
 
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link">TRAINING ▾</a>
+                <div class="dropdown-menu">
                     <div class="dropdown-item">
-                        <span class="dropdown-link">Courses ▶</span>
+                        <a href="#" class="dropdown-link course-toggle">Courses ▶</a>
 
                         <div class="sub-dropdown">
 
@@ -72,41 +187,258 @@ NICET PREPRATION COURSES </a>
 
                 
                         </div>
+
                     </div>
-
                     <a href="facilities.html" class="dropdown-link">Facilities</a>
-
                 </div>
             </div>
 
+            <a href="consultancy.html" class="nav-link">CONSULTANCY</a>
+            <a href="directory.html" class="nav-link">DIRECTORY</a>
+            <a href="contact.html" class="nav-link">CONTACT</a>
         </nav>
+
+        <!-- BUTTON -->
+        <div class="header-actions">
+            <a href="register.html" class="register-btn">REGISTER →</a>
+        </div>
 
     </div>
 </header>
 
 <section class="main-section">
 
-    <div class="nfpa-container">
+<div class="nfpa-container">
 
-       
+<h1>
+<img src="ICCLOGO.png" class="nfpa-logo">
+ICC Certification Courses
+</h1>
+
+<p class="nfpa-subtext">
+Prepare for International Code Council (ICC) certifications with expert-led training programs.
+</p>
+
+<div class="accordion">
+
+<!-- ICC FIRE INSPECTOR I -->
+<div class="accordion-item">
+<div class="accordion-header">
+ICC Fire Inspector I
+<span class="icon">+</span>
+</div>
+<div class="accordion-content">
+<ul>
+<li>Computer-based exam (Pearson VUE + online proctored)</li>
+<li>Duration: ~2 hours</li>
+<li>~60 MCQs</li>
+<li>Based on IFC</li>
+<li>For entry-level inspectors</li>
+<li>No strict experience required</li>
+<li>Focus: inspection & compliance</li>
+<li>Widely accepted in projects</li>
+</ul>
+</div>
+</div>
+
+<!-- ICC FIRE INSPECTOR II -->
+<div class="accordion-item">
+<div class="accordion-header">
+ICC Fire Inspector II
+<span class="icon">+</span>
+</div>
+<div class="accordion-content">
+<ul>
+<li>Computer-based exam</li>
+<li>Duration: ~2–3 hours</li>
+<li>~80 MCQs</li>
+<li>Advanced IFC</li>
+<li>For experienced inspectors</li>
+<li>Requires Level I knowledge</li>
+<li>Focus: complex inspections</li>
+<li>Higher authority role</li>
+</ul>
+</div>
+</div>
+
+<!-- ICC F3 -->
+<div class="accordion-item">
+<div class="accordion-header">
+ICC Fire Plans Examiner (F3)
+<span class="icon">+</span>
+</div>
+<div class="accordion-content">
+<ul>
+<li>Computer-based exam</li>
+<li>Duration: ~3 hours</li>
+<li>~80–90 MCQs</li>
+<li>Based on IFC + design codes</li>
+<li>For engineers & consultants</li>
+<li>Requires strong experience</li>
+<li>Focus: plan review & approval</li>
+<li>High demand role</li>
+</ul>
+</div>
+</div>
+
+<!-- NEBOSH -->
+<div class="accordion-item">
+<div class="accordion-header">
+NEBOSH IGC
+<span class="icon">+</span>
+</div>
+<div class="accordion-content">
+<ul>
+<li>Online exam + practical</li>
+<li>24 hr window + report</li>
+<li>Scenario-based</li>
+<li>For beginners</li>
+<li>No experience needed</li>
+<li>Focus: risk & safety management</li>
+<li>Globally accepted</li>
+</ul>
+</div>
+</div>
+
+<!-- IOSH -->
+<div class="accordion-item">
+<div class="accordion-header">
+IOSH Managing Safely
+<span class="icon">+</span>
+</div>
+<div class="accordion-content">
+<ul>
+<li>Online/center exam</li>
+<li>~45 min + practical</li>
+<li>~30 MCQs</li>
+<li>For managers</li>
+<li>No experience needed</li>
+<li>Short course (3–5 days)</li>
+</ul>
+</div>
+</div>
+
+<!-- OSHA -->
+<div class="accordion-item">
+<div class="accordion-header">
+OSHA Safety Programs
+<span class="icon">+</span>
+</div>
+<div class="accordion-content">
+<ul>
+<li>Online training</li>
+<li>10hr / 30hr</li>
+<li>Basic quizzes</li>
+<li>For workers & staff</li>
+<li>Focus: workplace safety</li>
+</ul>
+</div>
+</div>
+
+<!-- ASP -->
+<div class="accordion-item">
+<div class="accordion-header">
+BCSP ASP
+<span class="icon">+</span>
+</div>
+<div class="accordion-content">
+<ul>
+<li>Pearson VUE exam</li>
+<li>~5 hours</li>
+<li>~200 MCQs</li>
+<li>For degree holders</li>
+<li>Pre-requisite for CSP</li>
+<li>Advanced safety level</li>
+</ul>
+</div>
+</div>
+
+<!-- CSP -->
+<div class="accordion-item">
+<div class="accordion-header">
+BCSP CSP
+<span class="icon">+</span>
+</div>
+<div class="accordion-content">
+<ul>
+<li>Pearson VUE exam</li>
+<li>~5.5 hours</li>
+<li>~200 MCQs</li>
+<li>For experienced professionals</li>
+<li>Top-level certification</li>
+<li>Highly valued globally</li>
+</ul>
+</div>
+</div>
+
+</div>
+
+<a href="register.html" class="enroll-btn">🚀 Enroll Now</a>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-full">
+    <div class="footer-inner">
         
-       <h1><img src="ICCLOGO.png" alt="NFPA Logo" class="nfpa-logo"> ICC Certification Courses </h1>
+        <div class="footer-col">
+            <h3>CONTACT</h3>
+            <p>Phone: IND +91 7906715056</p>
+            <p>Phone: KSA +966 568382634</p>
+            <p>Email: info@FPSengineering.in</p>
+            <p>Email: infoFPSengineering@gmail.com</p>
+        </div>
 
-        <p class="nfpa-subtext">
-            Prepare for International Code Council (ICC) certifications with expert-led training programs.
-        </p>
+        <div class="footer-col">
+            <h3>LINKS</h3>
+            
+            <a href="index.html">Home</a>
+            <a href="faq.html">FAQ</a>
+            <a href="review.html">Reviews</a>
 
-        <ul class="nfpa-list">
-            <li>ICC Fire Inspector I</li>
-            <li>ICC Fire Inspector II</li>
-            <li>ICC Fire Plans Examiner (F3)</li>
-        </ul>
+            <div class="social-icons">
+                <a href="https://linkedin.com" target="_blank">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn">
+                </a>
 
-        <a href="register.html" class="enroll-btn">🚀 Enroll Now</a>
+                <a href="https://youtube.com" target="_blank">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube">
+                </a>
+            </div>
+        </div>
 
     </div>
 
-</section>
+    <div class="footer-bottom">
+        © 2026 FPSE. All Rights Reserved.
+    </div>
+</footer>
+<!-- WHATSAPP -->
+<a href="https://wa.me/917906715056" class="whatsapp-float" target="_blank">
+    <img src="https://img.icons8.com/?size=100&id=964RahB4l606&format=png&color=ffffff">
+</a>
+<script>
+document.querySelectorAll(".accordion-header").forEach(header => {
+    header.addEventListener("click", () => {
+
+        const item = header.parentElement;
+
+        document.querySelectorAll(".accordion-item").forEach(i => {
+            if (i !== item) {
+                i.classList.remove("active");
+                i.querySelector(".icon").textContent = "+";
+            }
+        });
+
+        item.classList.toggle("active");
+
+        const icon = header.querySelector(".icon");
+        icon.textContent = item.classList.contains("active") ? "−" : "+";
+    });
+});
+</script>
 
 </body>
 </html>

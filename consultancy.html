@@ -1,33 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Consultancy</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#c40000">
+
+    <title>Consultancy - FPSE</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,ar',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+    </script>
+
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- 🔥 LOCAL CSS (ONLY FOR THIS PAGE) -->
+    <style>
+        .services-section {
+            padding: 120px 20px 60px;
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .service-card {
+            position: relative;
+            display: block;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 250px;
+            text-decoration: none;
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .service-overlay {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: #fff;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .service-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .service-card:hover .service-overlay {
+            background: linear-gradient(to top, rgba(139,0,0,0.9), transparent);
+        }
+    </style>
+
 </head>
 
 <body>
 
 <div id="google_translate_element"></div>
 
-<!-- HEADER -->
+<!-- ✅ NAVBAR (UNCHANGED) -->
 <header class="header">
     <div class="header-container">
 
-         <div class="logo-section">
-    <a href="index.html">
-        <img src="logo2.png" alt="FPSE Logo" class="logo-img">
-    </a>
-    <span class="brand-name"></span>
-</div>
+        <div class="logo-section">
+            <a href="index.html">
+                <img src="logo2.png" alt="FPSE Logo" class="logo-img">
+            </a>
+            <span class="brand-name"></span>
+        </div>
 
+        <button id="mobileMenuToggle" class="mobile-menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
 
         <nav class="nav-menu">
-
             <a href="index.html" class="nav-link">HOME</a>
 
-            <!-- ABOUT -->
             <div class="nav-item dropdown">
                 <a href="about.html" class="nav-link">ABOUT US</a>
                 <div class="dropdown-menu">
@@ -37,65 +107,57 @@
                 </div>
             </div>
 
-            <!-- TRAINING -->
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link">TRAINING ▾</a>
-
                 <div class="dropdown-menu">
-
                     <div class="dropdown-item">
-                        <span class="dropdown-link">Courses ▶</span>
+                        <a href="#" class="dropdown-link course-toggle">Courses ▶</a>
 
-                     <div class="sub-dropdown">
+                        <div class="sub-dropdown">
 
                            <a href="nfpa.html" class="nfpa-link">
-    <img src="NFPALOGO.png" alt="NFPA" class="nfpa-icon">
-    NFPA CERTIFICATION COURSES
-</a>
-</a>
-                                 <a href="fire.html" class="nfpa-link">
-    <img src="NFPALOGO.png" alt="NFPA" class="nfpa-icon">
-NFPA FIRE PROTECTION & LIFE SAFETY SYSTEMS TRAINING COURSES
-</a>
-                            
+                               <img src="NFPALOGO.png" class="nfpa-icon"> NFPA CERTIFICATION COURSES
+                           </a>
+
+                           <a href="fire.html" class="nfpa-link">
+                               <img src="NFPALOGO.png" class="nfpa-icon">
+                               NFPA FIRE PROTECTION & LIFE SAFETY SYSTEMS TRAINING
+                           </a>
+
                            <a href="ife.html" class="nfpa-link">
-    <img src="IFELOGO.png" alt="NFPA" class="nfpa-icon">
-IFE PREPRATION COURSES </a>
+                               <img src="IFELOGO.png" class="nfpa-icon"> IFE PREPRATION COURSES
+                           </a>
 
+                           <a href="nicet.html" class="nfpa-link">
+                               <img src="NICETLOGO.png" class="nfpa-icon"> NICET PREPRATION COURSES
+                           </a>
 
-                            <a href="nicet.html" class="nfpa-link">
-    <img src="NICETLOGO.png" alt="NFPA" class="nfpa-icon">
-NICET PREPRATION COURSES </a>
+                           <a href="icc.html" class="nfpa-link">
+                               <img src="ICCLOGO.png" class="nfpa-icon"> ICC COURSES
+                           </a>
 
+                           <a href="safety.html" class="nfpa-link">
+                               <img src="SECURITYLOGO.png" class="nfpa-icon"> Safety Systems
+                           </a>
 
- <a href="icc.html" class="nfpa-link">
-    <img src="ICCLOGO.png" alt="NFPA" class="nfpa-icon"> ICC INTERNATIONAL CODE COUNSIL PREPRATION COURSES </a>
+                           <a href="computer.html" class="nfpa-link">
+                               <img src="COMPUTERLOGO.png" class="nfpa-icon"> Computer Courses
+                           </a>
 
-                             <a href="safety.html" class="nfpa-link">
-    <img src="SECURITYLOGO.png" alt="NFPA" class="nfpa-icon"> Security & Safety Systems-Based courses </a>
+                           <a href="international.html" class="nfpa-link">
+                               <img src="INTERLOGO.png" class="nfpa-icon"> International Certifications
+                           </a>
 
-<a href="computer.html" class="nfpa-link">
-    <img src="COMPUTERLOGO.png" alt="NFPA" class="nfpa-icon"> Computer-Based Courses & Digital Skills Training </a>
-
-
-    
-    <a href="international.html" class="nfpa-link">
-    <img src="INTERLOGO.png" alt="NFPA" class="nfpa-icon"> International Certifications </a>
-
-
-                
                         </div>
                     </div>
 
                     <a href="facilities.html" class="dropdown-link">Facilities</a>
-
                 </div>
             </div>
 
-            <a href="consultancy.html" class="nav-link active">CONSULTANCY</a>
+            <a href="consultancy.html" class="nav-link">CONSULTANCY</a>
             <a href="directory.html" class="nav-link">DIRECTORY</a>
             <a href="contact.html" class="nav-link">CONTACT</a>
-
         </nav>
 
         <div class="header-actions">
@@ -105,38 +167,70 @@ NICET PREPRATION COURSES </a>
     </div>
 </header>
 
-<section class="consultancy-section">
-    <div class="container">
-        <h1>Consultancy Services</h1>
-        <p>
-            We provide expert fire safety consultancy, risk assessment, compliance audits,
-            and engineering solutions for industries and organizations.
-        </p>
+<!-- ✅ SERVICES -->
+<section class="services-section">
+    <div class="services-container">
 
-        <div class="consultancy-cards">
-            <div class="card">
-                <h3>Fire Safety Audit</h3>
-                <p>Complete inspection and compliance checks.</p>
-            </div>
+        <a href="fire-safety-management.html" class="service-card">
+            <img src="fire.png">
+            <div class="service-overlay">FIRE SAFETY MANAGEMENT</div>
+        </a>
 
-            <div class="card">
-                <h3>Risk Assessment</h3>
-                <p>Identify hazards and improve safety measures.</p>
-            </div>
+        <a href="fire-investigation.html" class="service-card">
+            <img src="invest.png">
+            <div class="service-overlay">FIRE INVESTIGATION</div>
+        </a>
 
-            <div class="card">
-                <h3>System Design</h3>
-                <p>Design fire protection systems for buildings.</p>
-            </div>
-        </div>
+        <a href="nfpaa.html" class="service-card">
+            <img src="nfpaa.png">
+            <div class="service-overlay">NFPA</div>
+        </a>
+
     </div>
 </section>
+<!-- FOOTER -->
+<footer class="footer-full">
+    <div class="footer-inner">
+        
+        <div class="footer-col">
+            <h3>CONTACT</h3>
+            <p>Phone: IND +91 7906715056</p>
+            <p>Phone: KSA +966 568382634</p>
+            <p>Email: info@FPSengineering.in</p>
+            <p>Email: infoFPSengineering@gmail.com</p>
+        </div>
 
-<!-- ADD CONTENT -->
-<section style="padding:50px; color:white;">
-    <h1>Consultancy Services</h1>
-    <p>This is your consultancy page. Now it will show properly.</p>
-</section>
+        <div class="footer-col">
+            <h3>LINKS</h3>
+            
+            <a href="index.html">Home</a>
+            <a href="faq.html">FAQ</a>
+            <a href="review.html">Reviews</a>
+
+            <div class="social-icons">
+                <a href="https://linkedin.com" target="_blank">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn">
+                </a>
+
+                <a href="https://youtube.com" target="_blank">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube">
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 FPSE. All Rights Reserved.
+    </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/917906715056" class="whatsapp-float" target="_blank">
+    <img src="https://img.icons8.com/?size=100&id=964RahB4l606&format=png&color=ffffff">
+</a>
+
+<script src="script_updated.js"></script>
 
 </body>
 </html>

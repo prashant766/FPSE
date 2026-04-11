@@ -5,10 +5,117 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IFE Courses - FASE</title>
 <link rel="stylesheet" href="style.css">
+
+<style>
+
+/* PAGE SPACING */
+.main-section {
+    padding: 120px 20px 50px;
+}
+
+/* CONTAINER */
+.nfpa-container {
+    max-width: 900px;
+    margin: auto;
+}
+
+/* TITLE */
+h1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #d32f2f;
+}
+
+.nfpa-logo {
+    width: 40px;
+}
+
+.nfpa-subtext {
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* ACCORDION */
+.accordion-item {
+    background: #fff;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    border-left: 4px solid #d32f2f;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+.accordion-header {
+    padding: 18px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+}
+
+.icon {
+    font-size: 20px;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.4s ease;
+    padding: 0 18px;
+    text-align: left;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 500px;
+    padding: 15px 18px;
+}
+
+.accordion-content ul {
+    padding-left: 25px;
+}
+
+.accordion-content li {
+    margin-bottom: 8px;
+}
+
+/* BUTTON */
+.enroll-btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 25px;
+    background: #d32f2f;
+    color: #fff;
+    border-radius: 30px;
+    text-decoration: none;
+}
+
+</style>
+
+<link rel="stylesheet" href="style.css">
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,ar',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+    </script>
+
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 
 <body>
 
+<div id="google_translate_element"></div>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
 <header class="header">
     <div class="header-container">
 
@@ -19,21 +126,33 @@
     <span class="brand-name"></span>
 </div>
 
+        <!-- 🔥 MOBILE MENU BUTTON (ADDED) -->
+        <button id="mobileMenuToggle" class="mobile-menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
 
-        <!-- ✅ FULL NAVBAR -->
+        <!-- NAVBAR -->
         <nav class="nav-menu">
-
             <a href="index.html" class="nav-link">HOME</a>
 
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link">TRAINING ▾</a>
-
+                <a href="about.html" class="nav-link">ABOUT US</a>
                 <div class="dropdown-menu">
+                    <a href="about.html#team" class="dropdown-link">Our Team</a>
+                    <a href="about.html#mission" class="dropdown-link">Mission & Vision</a>
+                    <a href="about.html#gallery" class="dropdown-link">Gallery</a>
+                </div>
+            </div>
 
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link">TRAINING ▾</a>
+                <div class="dropdown-menu">
                     <div class="dropdown-item">
-                        <span class="dropdown-link">Courses ▶</span>
+                        <a href="#" class="dropdown-link course-toggle">Courses ▶</a>
 
-                         <div class="sub-dropdown">
+                        <div class="sub-dropdown">
 
                            <a href="nfpa.html" class="nfpa-link">
     <img src="NFPALOGO.png" alt="NFPA" class="nfpa-icon">
@@ -72,48 +191,163 @@ NICET PREPRATION COURSES </a>
 
                 
                         </div>
+
                     </div>
-
                     <a href="facilities.html" class="dropdown-link">Facilities</a>
-
                 </div>
             </div>
 
+            <a href="consultancy.html" class="nav-link">CONSULTANCY</a>
+            <a href="directory.html" class="nav-link">DIRECTORY</a>
+            <a href="contact.html" class="nav-link">CONTACT</a>
         </nav>
+
+        <!-- BUTTON -->
+        <div class="header-actions">
+            <a href="register.html" class="register-btn">REGISTER →</a>
+        </div>
 
     </div>
 </header>
 
 <section class="main-section">
 
-    <div class="nfpa-container">
+<div class="nfpa-container">
 
-        <h1>
-    <img src="IFELOGO.png" alt="NFPA Logo" class="nfpa-logo">
-    IFE PREPRATION COURSES
+<h1>
+<img src="IFELOGO.png" class="nfpa-logo">
+IFE PREPRATION COURSES
 </h1>
 
-        <p class="nfpa-subtext">
-            Build your expertise with Institute of Fire Engineers (IFE) certified training programs.
-        </p>
+<p class="nfpa-subtext">
+Build your expertise with Institute of Fire Engineers (IFE) certified training programs.
+</p>
 
-        <ul class="nfpa-list">
-            <li>Level 2 Certificate in Fire Science, Operations and Safety (L2C)</li>
-            <li>Level 2 Award in Passive Fire Protection: Walls, Floors, Ceilings & Glazing (L2CP2)</li>
-            <li>Level 2 Award in Passive Fire Protection: Fire Stopping, Barriers, Ductwork & Dampers (L2CP3)</li>
-            <li>Level 2 Award in Passive Fire Protection: Doors & Shutters (L2CP4)</li>
-            <li>Level 3 Certificate in Passive Fire Protection (L3CP)</li>
-            <li>Level 3 Award in Fire Engineering Science (L3C1)</li>
-            <li>Level 3 Award in Fire Operations (L3C2)</li>
-            <li>Level 3 Certificate in Fire Safety (L3D2)</li>
-            <li>Level 4 Certificate in Fire Engineering Science (L4C1)</li>
-        </ul>
+<div class="accordion">
 
-        <a href="register.html" class="enroll-btn">🚀 Enroll Now</a>
+<!-- LEVEL 2 -->
+<div class="accordion-item">
+<div class="accordion-header">
+Level 2 Courses
+<span class="icon">+</span>
+</div>
+<div class="accordion-content">
+<ul>
+<li>Level 2 Certificate in Fire Science, Operations and Safety (L2C)</li>
+<li>Level 2 Award in Passive Fire Protection (L2CP2, L2CP3, L2CP4)</li>
+<li>Walls, Floors, Ceilings & Glazing</li>
+<li>Fire Stopping, Barriers, Ductwork & Dampers</li>
+<li>Doors & Shutters</li>
+<li>For: Fire inspectors, Safety officers, Technicians</li>
+<li>Exam: Online from home</li>
+</ul>
+</div>
+</div>
+
+<!-- LEVEL 3 -->
+<div class="accordion-item">
+<div class="accordion-header">
+Level 3 Courses
+<span class="icon">+</span>
+</div>
+<div class="accordion-content">
+<ul>
+<li>Level 3 Certificate in Passive Fire Protection (L3CP)</li>
+<li>Level 3 Award in Fire Engineering Science (L3C1)</li>
+<li>Level 3 Award in Fire Operations (L3C2)</li>
+<li>Level 3 Certificate in Fire Safety (L3D2)</li>
+<li>Includes: Fire Engineering, Operations, Safety, Management</li>
+<li>Advanced technician / supervisory level</li>
+<li>Exam: Center-based worldwide</li>
+</ul>
+</div>
+</div>
+
+<!-- LEVEL 4 -->
+<div class="accordion-item">
+<div class="accordion-header">
+Level 4 Courses
+<span class="icon">+</span>
+</div>
+<div class="accordion-content">
+<ul>
+<li>Level 4 Certificate in Fire Engineering Science (L4C1)</li>
+<li>For: Engineers, Fire Safety Managers, Consultants</li>
+<li>Advanced professional level certification</li>
+<li>Exam: Center-based worldwide</li>
+</ul>
+</div>
+</div>
+
+</div>
+
+<a href="register.html" class="enroll-btn">🚀 Enroll Now</a>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-full">
+    <div class="footer-inner">
+        
+        <div class="footer-col">
+            <h3>CONTACT</h3>
+            <p>Phone: IND +91 7906715056</p>
+            <p>Phone: KSA +966 568382634</p>
+            <p>Email: info@FPSengineering.in</p>
+            <p>Email: infoFPSengineering@gmail.com</p>
+        </div>
+
+        <div class="footer-col">
+            <h3>LINKS</h3>
+            
+            <a href="index.html">Home</a>
+            <a href="faq.html">FAQ</a>
+            <a href="review.html">Reviews</a>
+
+            <div class="social-icons">
+                <a href="https://linkedin.com" target="_blank">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn">
+                </a>
+
+                <a href="https://youtube.com" target="_blank">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube">
+                </a>
+            </div>
+        </div>
 
     </div>
 
-</section>
+    <div class="footer-bottom">
+        © 2026 FPSE. All Rights Reserved.
+    </div>
+</footer>
+<!-- WHATSAPP -->
+<a href="https://wa.me/917906715056" class="whatsapp-float" target="_blank">
+    <img src="https://img.icons8.com/?size=100&id=964RahB4l606&format=png&color=ffffff">
+</a>
+
+<script>
+document.querySelectorAll(".accordion-header").forEach(header => {
+    header.addEventListener("click", () => {
+
+        const item = header.parentElement;
+
+        document.querySelectorAll(".accordion-item").forEach(i => {
+            if (i !== item) {
+                i.classList.remove("active");
+                i.querySelector(".icon").textContent = "+";
+            }
+        });
+
+        item.classList.toggle("active");
+
+        const icon = header.querySelector(".icon");
+        icon.textContent = item.classList.contains("active") ? "−" : "+";
+    });
+});
+</script>
 
 </body>
 </html>

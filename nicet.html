@@ -5,10 +5,114 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NICET Courses - FASE</title>
 <link rel="stylesheet" href="style.css">
+
+<style>
+
+/* PAGE */
+.main-section {
+    padding: 120px 20px 50px;
+}
+
+.nfpa-container {
+    max-width: 900px;
+    margin: auto;
+}
+
+/* TITLE */
+h1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #d32f2f;
+}
+
+.nfpa-logo {
+    width: 40px;
+}
+
+.nfpa-subtext {
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* ACCORDION */
+.accordion-item {
+    background: #fff;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    border-left: 4px solid #d32f2f;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+.accordion-header {
+    padding: 18px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+}
+
+.icon {
+    font-size: 20px;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.4s ease;
+    padding: 0 18px;
+    text-align: left;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 600px;
+    padding: 15px 18px;
+}
+
+/* LIST */
+.accordion-content ul {
+    padding-left: 25px;
+}
+
+.accordion-content li {
+    margin-bottom: 8px;
+}
+
+.enroll-btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 25px;
+    background: #d32f2f;
+    color: #fff;
+    border-radius: 30px;
+    text-decoration: none;
+}
+
+</style>
+
+<link rel="stylesheet" href="style.css">
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,ar',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+    </script>
+
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 
 <body>
 
+<div id="google_translate_element"></div>
+</head>
+
+<body>
+<!-- HEADER -->
 <header class="header">
     <div class="header-container">
 
@@ -19,19 +123,31 @@
     <span class="brand-name"></span>
 </div>
 
+        <!-- 🔥 MOBILE MENU BUTTON (ADDED) -->
+        <button id="mobileMenuToggle" class="mobile-menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
 
-        <!-- ✅ FULL NAVBAR -->
+        <!-- NAVBAR -->
         <nav class="nav-menu">
-
             <a href="index.html" class="nav-link">HOME</a>
 
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link">TRAINING ▾</a>
-
+                <a href="about.html" class="nav-link">ABOUT US</a>
                 <div class="dropdown-menu">
+                    <a href="about.html#team" class="dropdown-link">Our Team</a>
+                    <a href="about.html#mission" class="dropdown-link">Mission & Vision</a>
+                    <a href="about.html#gallery" class="dropdown-link">Gallery</a>
+                </div>
+            </div>
 
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link">TRAINING ▾</a>
+                <div class="dropdown-menu">
                     <div class="dropdown-item">
-                        <span class="dropdown-link">Courses ▶</span>
+                        <a href="#" class="dropdown-link course-toggle">Courses ▶</a>
 
                         <div class="sub-dropdown">
 
@@ -72,43 +188,173 @@ NICET PREPRATION COURSES </a>
 
                 
                         </div>
+
                     </div>
-
                     <a href="facilities.html" class="dropdown-link">Facilities</a>
-
                 </div>
             </div>
 
+            <a href="consultancy.html" class="nav-link">CONSULTANCY</a>
+            <a href="directory.html" class="nav-link">DIRECTORY</a>
+            <a href="contact.html" class="nav-link">CONTACT</a>
         </nav>
+
+        <!-- BUTTON -->
+        <div class="header-actions">
+            <a href="register.html" class="register-btn">REGISTER →</a>
+        </div>
 
     </div>
 </header>
-
 <section class="main-section">
 
-    <div class="nfpa-container">
+<div class="nfpa-container">
 
-       <h1>
-    <img src="NICETLOGO.png" alt="NFPA Logo" class="nfpa-logo">
-    NICET Certification 
+<h1>
+<img src="NICETLOGO.png" class="nfpa-logo">
+NICET Certification
 </h1>
 
-        <p class="nfpa-subtext">
-            Advance your career with NICET certification programs in fire protection systems and inspection.
-        </p>
+<p class="nfpa-subtext">
+Advance your career with NICET certification programs in fire protection systems and inspection.
+</p>
 
-        <ul class="nfpa-list">
-            <li>Fire Alarm Systems Certification (Levels I – IV)</li>
-            <li>Inspection & Testing of Fire Alarm Systems (ITFAS)</li>
-            <li>Inspection & Testing of Water-Based Systems (Levels I – III)</li>
-            <li>Special Hazards Systems (Levels I – IV)</li>
-        </ul>
+<div class="accordion">
 
-        <a href="register.html" class="enroll-btn">Enroll Now</a>
+<!-- FIRE ALARM -->
+<div class="accordion-item">
+<div class="accordion-header">
+Fire Alarm Systems Certification (Levels I – IV)
+<span class="icon">+</span>
+</div>
+<div class="accordion-content">
+<ul>
+<li>Computer-based exam (Pearson VUE centers)</li>
+<li>Duration: ~2–3 hours per level</li>
+<li>MCQs (~85–120 questions)</li>
+<li>Based on NFPA 72 & related standards</li>
+<li>For technicians, engineers, installers, designers</li>
+<li>Requires work experience + Level progression</li>
+<li>Focus: design, installation, testing, maintenance</li>
+<li>Globally recognized credential</li>
+</ul>
+</div>
+</div>
+
+<!-- ITFAS -->
+<div class="accordion-item">
+<div class="accordion-header">
+Inspection & Testing of Fire Alarm Systems (ITFAS)
+<span class="icon">+</span>
+</div>
+<div class="accordion-content">
+<ul>
+<li>Computer-based exam (Pearson VUE centers)</li>
+<li>Duration: ~2–3 hours</li>
+<li>MCQs (~90–110 questions)</li>
+<li>Based on NFPA 72 (ITM)</li>
+<li>For inspectors, maintenance staff, technicians</li>
+<li>Requires relevant field experience</li>
+<li>Focus: inspection, testing, troubleshooting</li>
+<li>High demand in ITM roles</li>
+</ul>
+</div>
+</div>
+
+<!-- WATER BASED -->
+<div class="accordion-item">
+<div class="accordion-header">
+Inspection & Testing of Water-Based Systems (Levels I – III)
+<span class="icon">+</span>
+</div>
+<div class="accordion-content">
+<ul>
+<li>Computer-based exam (Pearson VUE centers)</li>
+<li>Duration: ~2–3 hours per level</li>
+<li>MCQs (~90–110 questions)</li>
+<li>Based on NFPA 25</li>
+<li>For sprinkler inspectors, ITM technicians</li>
+<li>Requires system experience</li>
+<li>Focus: inspection, testing, maintenance</li>
+<li>Comparable to NFPA WBITM roles</li>
+</ul>
+</div>
+</div>
+
+<!-- SPECIAL HAZARDS -->
+<div class="accordion-item">
+<div class="accordion-header">
+Special Hazards Systems (Levels I – IV)
+<span class="icon">+</span>
+</div>
+<div class="accordion-content">
+<ul>
+<li>Computer-based exam (Pearson VUE centers)</li>
+<li>Duration: ~2–3 hours per level</li>
+<li>MCQs (~85–110 questions)</li>
+<li>Based on NFPA (clean agent, foam, gas)</li>
+<li>For engineers, designers, specialists</li>
+<li>Requires experience + progression</li>
+<li>Focus: design & installation</li>
+<li>Used in oil & gas, data centers, industries</li>
+</ul>
+</div>
+</div>
+
+</div>
+
+<a href="register.html" class="enroll-btn">Enroll Now</a>
+
+</div>
+
+</section>
+
+<!-- FOOTER (UNCHANGED) -->
+<footer class="footer-full">
+    <div class="footer-inner">
+        
+        <div class="footer-col">
+            <h3>CONTACT</h3>
+            <p>Phone: IND +91 7906715056</p>
+            <p>Phone: KSA +966 568382634</p>
+            <p>Email: info@FPSengineering.in</p>
+            <p>Email: infoFPSengineering@gmail.com</p>
+        </div>
+
+        <div class="footer-col">
+            <h3>LINKS</h3>
+            <a href="index.html">Home</a>
+            <a href="faq.html">FAQ</a>
+            <a href="review.html">Reviews</a>
+        </div>
 
     </div>
 
-</section>
+    <div class="footer-bottom">
+        © 2026 FPSE. All Rights Reserved.
+    </div>
+</footer>
+
+<script>
+document.querySelectorAll(".accordion-header").forEach(header => {
+    header.addEventListener("click", () => {
+
+        const item = header.parentElement;
+
+        document.querySelectorAll(".accordion-item").forEach(i => {
+            if (i !== item) {
+                i.classList.remove("active");
+                i.querySelector(".icon").textContent = "+";
+            }
+        });
+
+        item.classList.toggle("active");
+
+        const icon = header.querySelector(".icon");
+        icon.textContent = item.classList.contains("active") ? "−" : "+";
+    });
+});
+</script>
 
 </body>
 </html>
