@@ -6189,3 +6189,128 @@ html {
 
 
 
+
+/*responsive
+
+/* 🔥 FIX HEADER LAYOUT FOR MOBILE */
+@media (max-width: 768px) {
+
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo-section {
+        flex: 1;
+    }
+
+    .mobile-menu-toggle {
+        display: flex;
+        margin-left: auto;
+    }
+
+    .header-actions {
+        display: none;
+    }
+}
+
+
+/* 🔥 FORCE DROPDOWN TO WORK IN MOBILE */
+
+@media (max-width: 768px) {
+
+    .dropdown-menu {
+        display: none;
+        flex-direction: column;
+        background: #f9f9f9;
+        padding: 10px;
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+
+    .dropdown.active .dropdown-menu {
+        display: flex !important;
+    }
+
+    /* remove any height restriction */
+    .dropdown-menu,
+    .sub-dropdown {
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+    }
+
+    .dropdown-link {
+        padding: 10px 0;
+        font-size: 14px;
+    }
+}
+
+
+/* 🔥 FIX SUB-DROPDOWN FOR MOBILE */
+
+@media (max-width: 768px) {
+
+    .sub-dropdown {
+        position: static !important;   /* remove absolute */
+        display: none;
+        background: #fff;
+        padding-left: 15px;
+        margin-top: 10px;
+        border-left: 2px solid #eee;
+    }
+
+    .dropdown-item.active .sub-dropdown {
+        display: block !important;
+    }
+
+    /* fix course toggle spacing */
+    .course-toggle {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    /* prevent overflow */
+    .dropdown-menu {
+        overflow: visible !important;
+    }
+}   
+
+
+/* 🔥 FORCE MOBILE DROPDOWN FIX (FINAL OVERRIDE) */
+@media (max-width: 768px) {
+
+    .dropdown-menu {
+        position: static !important;
+        width: 100% !important;
+    }
+
+    .sub-dropdown {
+        position: static !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        display: none;
+        padding-left: 15px;
+        background: #fff;
+    }
+
+    .dropdown-item.active .sub-dropdown {
+        display: block !important;
+    }
+
+    /* kill any transform/translate */
+    .sub-dropdown,
+    .dropdown-menu {
+        transform: none !important;
+    }
+
+    /* prevent clipping */
+    .nav-menu {
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+}
+
