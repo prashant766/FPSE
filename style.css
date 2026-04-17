@@ -6314,3 +6314,12 @@ html {
     }
 }
 
+.coming-soon {
+    padding: 180px 20px 120px; /* top space from header + bottom spacing */
+    text-align: center;
+}
+
+.coming-soon h1 {
+    font-size: 40px;
+    letter-spacing: 2px;
+}
