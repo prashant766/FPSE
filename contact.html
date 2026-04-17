@@ -242,5 +242,44 @@ NICET PREPRATION COURSES </a>
     </div>
 </footer>
 <script src="script_updated.js"></script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, addDoc, collection } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAArJNnzZJG0q6cvtRs6-ooUM5TiFaqzDw",
+  authDomain: "reviews-app-9f60b.firebaseapp.com",
+  projectId: "reviews-app-9f60b",
+  storageBucket: "reviews-app-9f60b.firebasestorage.app",
+  messagingSenderId: "618451163872",
+  appId: "1:618451163872:web:ca5ae25c884f29a8978e85"
+
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const form = document.getElementById("feedbackForm");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const course = document.getElementById("course").value;
+  const rating = document.getElementById("rating").value;
+  const feedback = document.getElementById("feedback").value;
+
+  await addDoc(collection(db, "reviews"), {
+    name,
+    course,
+    rating: Number(rating),
+    feedback,
+    createdAt: new Date()
+  });
+
+  alert("Review submitted!");
+  form.reset();
+});
+</script>
 </body>
 </html>

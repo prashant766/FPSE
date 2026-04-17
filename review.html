@@ -207,29 +207,47 @@ NICET PREPRATION COURSES </a>
 </footer>
 
 <!-- 🔥 REVIEW SCRIPT -->
-<script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+// 🔥 PASTE YOUR CONFIG HERE
+const firebaseConfig = {
+   apiKey: "AIzaSyAArJNnzZJG0q6cvtRs6-ooUM5TiFaqzDw",
+  authDomain: "reviews-app-9f60b.firebaseapp.com",
+  projectId: "reviews-app-9f60b",
+  storageBucket: "reviews-app-9f60b.firebasestorage.app",
+  messagingSenderId: "618451163872",
+  appId: "1:618451163872:web:ca5ae25c884f29a8978e85"
+
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
 const container = document.getElementById("reviewContainer");
 
-let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+async function loadReviews() {
+  const querySnapshot = await getDocs(collection(db, "reviews"));
+  container.innerHTML = "";
 
-if (reviews.length === 0) {
-    container.innerHTML = "<p style='text-align:center;'>No reviews yet.</p>";
-} else {
-    reviews.reverse().forEach(r => {
+  querySnapshot.forEach((doc) => {
+    const r = doc.data();
 
-        const rating = r.rating || 0; // safety fix
-        const stars = "★".repeat(rating) + "☆".repeat(5 - rating);
+    const stars = "★".repeat(r.rating || 0) + "☆".repeat(5 - (r.rating || 0));
 
-        container.innerHTML += `
-            <div class="review-card">
-                <h3>${r.name}</h3>
-                <div class="course">Student</div>
-                <div class="stars">${stars}</div>
-                <p class="review-text">"${r.feedback}"</p>
-            </div>
-        `;
-    });
+    container.innerHTML += `
+      <div class="review-card">
+        <h3>${r.name}</h3>
+        <div class="course">${r.course}</div>
+        <div class="stars">${stars}</div>
+        <p class="review-text">"${r.feedback}"</p>
+      </div>
+    `;
+  });
 }
+
+loadReviews();
 </script>
 
 <!-- 🔥 YOUR MAIN JS -->
