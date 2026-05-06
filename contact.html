@@ -133,6 +133,9 @@ NICET PREPRATION COURSES </a>
             <label>Name</label>
             <input type="text" id="name" required>
 
+            <label>Position</label>
+<input type="text" id="position" placeholder="Enter your position" required>
+
            <label>Course</label>
 <select id="course" required>
     <option>NFPA Certification Courses</option>
@@ -271,14 +274,16 @@ form.addEventListener("submit", async (e) => {
   const course = document.getElementById("course").value;
   const rating = document.getElementById("rating").value;
   const feedback = document.getElementById("feedback").value;
+  const position = document.getElementById("position").value;
 
-  await addDoc(collection(db, "reviews"), {
+await addDoc(collection(db, "reviews"), {
     name,
     course,
+    position,
     rating: Number(rating),
     feedback,
     createdAt: new Date()
-  });
+});
 
   alert("Review submitted!");
   form.reset();

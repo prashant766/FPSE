@@ -61,6 +61,13 @@
     font-size: 14px;
     color: #555;
 }
+
+.position {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #111;
+}
+
 </style>
 
 </head>
@@ -163,7 +170,7 @@ NICET PREPRATION COURSES </a>
 <section class="review-section">
     <div class="review-container">
 
-        <h2 class="review-title">Alumini Reviews</h2>
+        <h2 class="review-title">Alumni Reviews</h2>
 
         <div class="review-grid" id="reviewContainer"></div>
 
@@ -209,7 +216,7 @@ NICET PREPRATION COURSES </a>
 <!-- 🔥 REVIEW SCRIPT -->
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 // 🔥 PASTE YOUR CONFIG HERE
 const firebaseConfig = {
@@ -227,7 +234,8 @@ const db = getFirestore(app);
 const container = document.getElementById("reviewContainer");
 
 async function loadReviews() {
-  const querySnapshot = await getDocs(collection(db, "reviews"));
+  const q = query(collection(db, "reviews"), orderBy("createdAt", "desc"));
+const querySnapshot = await getDocs(q);
   container.innerHTML = "";
 
   querySnapshot.forEach((doc) => {
@@ -239,6 +247,7 @@ async function loadReviews() {
       <div class="review-card">
         <h3>${r.name}</h3>
         <div class="course">${r.course}</div>
+<div class="position">${r.position || ""}</div>
         <div class="stars">${stars}</div>
         <p class="review-text">"${r.feedback}"</p>
       </div>
