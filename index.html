@@ -8,173 +8,269 @@
 
     <title>FPSE - Fire Protection Solution and Engineering</title>
     <link rel="icon" type="image/png" href="logo2.png">
-    <link rel="icon" type="image/png" href="logo2.png">
     <link rel="stylesheet" href="style.css">
 
-    <style>
-        /* NFPS certification highlight - added to index.html only */
-        .nfps-certification {
-            padding: 42px 20px;
-            background: #f7f8fa;
-        }
+<style>
+
+    /* NFPS certification highlight - added to index.html only */
+    .nfps-certification {
+        padding: 42px 20px;
+        background: #f7f8fa;
+    }
+
+    .nfps-certification-inner {
+        max-width: 1180px;
+        margin: 0 auto;
+        min-height: 220px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+        padding: 28px 34px;
+        overflow: hidden;
+        position: relative;
+        border-radius: 20px;
+        background: linear-gradient(115deg, #171d2b 0%, #25364b 58%, #9d1b16 100%);
+        box-shadow: 0 14px 35px rgba(18, 29, 45, .18);
+        color: #fff;
+        box-sizing: border-box;
+    }
+
+    .nfps-certification-copy {
+        position: relative;
+        z-index: 1;
+        max-width: 650px;
+    }
+
+    .nfps-certification-kicker {
+        display: inline-block;
+        margin-bottom: 12px;
+        padding: 7px 13px;
+        border: 1px solid rgba(255,255,255,.42);
+        border-radius: 30px;
+        color: #ffe18a;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+    }
+
+    .nfps-certification h2 {
+        margin: 0 0 12px;
+        color: #fff;
+        font-size: clamp(25px, 3.2vw, 39px);
+        line-height: 1.15;
+        font-weight: 800;
+    }
+
+    .nfps-certification p {
+        margin: 0;
+        color: rgba(255,255,255,.9);
+        font-size: 16px;
+        line-height: 1.65;
+    }
+
+    .nfps-certification-image {
+        width: min(34%, 330px);
+        max-height: 190px;
+        object-fit: contain;
+        flex-shrink: 0;
+        border-radius: 12px;
+        filter: drop-shadow(0 8px 18px rgba(0,0,0,.25));
+    }
+
+
+    /* Six-photo carousel - added to index.html only */
+    .home-photo-carousel {
+        padding: 42px 20px;
+        background: #fff;
+        box-sizing: border-box;
+        width: 100%;
+    }
+
+    .home-photo-carousel-inner {
+        max-width: 1180px;
+        width: 100%;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+
+    .home-photo-carousel-heading {
+        margin: 0 0 8px;
+        text-align: center;
+        color: #172235;
+        font-size: clamp(24px, 3vw, 34px);
+    }
+
+    .home-photo-carousel-subtitle {
+        margin: 0 0 24px;
+        text-align: center;
+        color: #667085;
+    }
+
+    .home-photo-slider {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 18px;
+        background: #0b172a;
+        box-shadow: 0 12px 30px rgba(20, 35, 55, .13);
+        box-sizing: border-box;
+    }
+
+    .home-photo-track {
+        display: flex;
+        width: 100%;
+        transition: transform .65s ease;
+        will-change: transform;
+    }
+
+    .home-photo-slide {
+        flex: 0 0 100%;
+        width: 100%;
+        min-width: 100%;
+        height: clamp(230px, 42vw, 490px);
+        position: relative;
+        overflow: hidden;
+        box-sizing: border-box;
+        background: #0b172a;
+    }
+
+    .home-photo-slide img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+        object-position: center;
+        background: #0b172a;
+    }
+
+    .home-photo-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
+        width: 44px;
+        height: 44px;
+        border: 0;
+        border-radius: 50%;
+        background: rgba(15, 23, 42, .72);
+        color: #fff;
+        font-size: 27px;
+        line-height: 1;
+        cursor: pointer;
+        transition: background .2s, transform .2s;
+    }
+
+    .home-photo-arrow:hover {
+        background: #c40000;
+        transform: translateY(-50%) scale(1.06);
+    }
+
+    .home-photo-prev {
+        left: 16px;
+    }
+
+    .home-photo-next {
+        right: 16px;
+    }
+
+    .home-photo-dots {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        padding: 17px 0 0;
+    }
+
+    .home-photo-dot {
+        width: 10px;
+        height: 10px;
+        padding: 0;
+        border: 0;
+        border-radius: 50px;
+        background: #c8ced8;
+        cursor: pointer;
+        transition: width .25s, background .25s;
+    }
+
+    .home-photo-dot.active {
+        width: 28px;
+        background: #c40000;
+    }
+
+
+    /* Promotional banners: preserve complete artwork without cropping */
+    .hero-slider .hero-bg.promo-slide {
+        object-fit: contain;
+        object-position: center;
+        background: #0b172a;
+    }
+
+
+    /* Hide default hero text when promotional banners are active */
+    body.hero-promo-active #heroDefaultOverlay {
+        display: none !important;
+    }
+
+
+    /* Header logo protection - prevent logo from shrinking */
+    .logo-section {
+        flex-shrink: 0;
+    }
+
+    .logo-section > a {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+    }
+
+    .logo-img {
+        flex-shrink: 0;
+    }
+
+
+    /* Responsive design */
+    @media (max-width: 700px) {
+
         .nfps-certification-inner {
-            max-width: 1180px;
-            margin: 0 auto;
-            min-height: 220px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 30px;
-            padding: 28px 34px;
-            overflow: hidden;
-            position: relative;
-            border-radius: 20px;
-            background: linear-gradient(115deg, #171d2b 0%, #25364b 58%, #9d1b16 100%);
-            box-shadow: 0 14px 35px rgba(18, 29, 45, .18);
-            color: #fff;
-        }
-        .nfps-certification-copy {
-            position: relative;
-            z-index: 1;
-            max-width: 650px;
-        }
-        .nfps-certification-kicker {
-            display: inline-block;
-            margin-bottom: 12px;
-            padding: 7px 13px;
-            border: 1px solid rgba(255,255,255,.42);
-            border-radius: 30px;
-            color: #ffe18a;
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-        }
-        .nfps-certification h2 {
-            margin: 0 0 12px;
-            color: #fff;
-            font-size: clamp(25px, 3.2vw, 39px);
-            line-height: 1.15;
-            font-weight: 800;
-        }
-        .nfps-certification p {
-            margin: 0;
-            color: rgba(255,255,255,.9);
-            font-size: 16px;
-            line-height: 1.65;
-        }
-        .nfps-certification-image {
-            width: min(34%, 330px);
-            max-height: 190px;
-            object-fit: contain;
-            flex-shrink: 0;
-            border-radius: 12px;
-            filter: drop-shadow(0 8px 18px rgba(0,0,0,.25));
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 25px 22px;
         }
 
-        /* Six-photo carousel - added to index.html only */
-        .home-photo-carousel {
-            padding: 42px 20px;
-            background: #fff;
-        }
-        .home-photo-carousel-inner {
-            max-width: 1180px;
-            margin: 0 auto;
-        }
-        .home-photo-carousel-heading {
-            margin: 0 0 8px;
-            text-align: center;
-            color: #172235;
-            font-size: clamp(24px, 3vw, 34px);
-        }
-        .home-photo-carousel-subtitle {
-            margin: 0 0 24px;
-            text-align: center;
-            color: #667085;
-        }
-        .home-photo-slider {
-            position: relative;
-            overflow: hidden;
-            border-radius: 18px;
-            background: #e9edf2;
-            box-shadow: 0 12px 30px rgba(20, 35, 55, .13);
-        }
-        .home-photo-track {
-            display: flex;
-            transition: transform .65s ease;
-            will-change: transform;
-        }
-        .home-photo-slide {
-            min-width: 100%;
-            height: clamp(230px, 42vw, 490px);
-            position: relative;
-        }
-        .home-photo-slide img {
+        .nfps-certification-image {
             width: 100%;
-            height: 100%;
-            display: block;
-            object-fit: cover;
+            max-height: 150px;
+            align-self: center;
         }
+
+        .home-photo-carousel,
+        .nfps-certification {
+            padding: 30px 14px;
+        }
+
+        .home-photo-slide {
+            height: clamp(200px, 58vw, 350px);
+        }
+
         .home-photo-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 2;
-            width: 44px;
-            height: 44px;
-            border: 0;
-            border-radius: 50%;
-            background: rgba(15, 23, 42, .72);
-            color: #fff;
-            font-size: 27px;
-            line-height: 1;
-            cursor: pointer;
-            transition: background .2s, transform .2s;
+            width: 38px;
+            height: 38px;
         }
-        .home-photo-arrow:hover {
-            background: #c40000;
-            transform: translateY(-50%) scale(1.06);
+
+    }
+
+
+    /* Respect reduced-motion preferences */
+    @media (prefers-reduced-motion: reduce) {
+
+        .home-photo-track {
+            transition: none;
         }
-        .home-photo-prev { left: 16px; }
-        .home-photo-next { right: 16px; }
-        .home-photo-dots {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            padding: 17px 0 0;
-        }
-        .home-photo-dot {
-            width: 10px;
-            height: 10px;
-            padding: 0;
-            border: 0;
-            border-radius: 50px;
-            background: #c8ced8;
-            cursor: pointer;
-            transition: width .25s, background .25s;
-        }
-        .home-photo-dot.active {
-            width: 28px;
-            background: #c40000;
-        }
-        @media (max-width: 700px) {
-            .nfps-certification-inner {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 25px 22px;
-            }
-            .nfps-certification-image {
-                width: 100%;
-                max-height: 150px;
-                align-self: center;
-            }
-            .home-photo-carousel, .nfps-certification { padding: 30px 14px; }
-            .home-photo-arrow { width: 38px; height: 38px; }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .home-photo-track { transition: none; }
-        }
-    </style>
+
+    }
+
+</style>
 
     <script>
     function googleTranslateElementInit() {
@@ -187,8 +283,10 @@
     </script>
 
     <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script src="script_updated.js"></script>
 </head>
-<script src="script_updated.js"></script>
+
 <body>
 
 <div id="google_translate_element"></div>
@@ -198,11 +296,11 @@
     <div class="header-container">
 
         <div class="logo-section">
-    <a href="index.html">
-        <img src="logo2.png" alt="FPSE Logo" class="logo-img">
-    </a>
-    <span class="brand-name"></span>
-</div>
+            <a href="index.html">
+                <img src="logo2.png" alt="FPSE Logo" class="logo-img">
+            </a>
+            <span class="brand-name"></span>
+        </div>
 
         <!-- 🔥 MOBILE MENU BUTTON (ADDED) -->
         <button id="mobileMenuToggle" class="mobile-menu-toggle">
@@ -225,48 +323,42 @@
             </div>
 
             <div class="nav-item dropdown">
-               <a href="javascript:void(0)" class="nav-link training-toggle">TRAINING ▾</a>
+                <a href="javascript:void(0)" class="nav-link training-toggle">TRAINING ▾</a>
                 <div class="dropdown-menu">
                     <div class="dropdown-item">
                         <a href="#" class="dropdown-link course-toggle">Courses ▶</a>
 
                         <div class="sub-dropdown">
 
-                           <a href="nfpa.html" class="nfpa-link">
-<img src="NFPALOGO.png" alt="NFPA" class="nfpa-icon">
-     NFPA CERTIFICATION COURSES
-</a>
-</a>
-                                 <a href="fire.html" class="nfpa-link">
-   <img src="NFPALOGO.png" alt="NFPA" class="nfpa-icon">
-NFPA FIRE PROTECTION & LIFE SAFETY SYSTEMS TRAINING COURSES
-</a>
+                            <a href="nfpa.html" class="nfpa-link">
+                                <img src="NFPALOGO.png" alt="NFPA" class="nfpa-icon">
+                                NFPA CERTIFICATION COURSES
+                            </a>
 
-                           <a href="ife.html" class="nfpa-link">
-    <img src="IFELOGO.png" alt="NFPA" class="nfpa-icon">
-IFE PREPRATION COURSES </a>
+                            <a href="fire.html" class="nfpa-link">
+                                <img src="NFPALOGO.png" alt="NFPA" class="nfpa-icon">
+                                NFPA FIRE PROTECTION & LIFE SAFETY SYSTEMS TRAINING COURSES
+                            </a>
 
+                            <a href="ife.html" class="nfpa-link">
+                                <img src="IFELOGO.png" alt="NFPA" class="nfpa-icon">
+                                IFE PREPRATION COURSES </a>
 
                             <a href="nicet.html" class="nfpa-link">
-    <img src="NICETLOGO.png" alt="NFPA" class="nfpa-icon">
-NICET PREPRATION COURSES </a>
+                                <img src="NICETLOGO.png" alt="NFPA" class="nfpa-icon">
+                                NICET PREPRATION COURSES </a>
 
+                            <a href="icc.html" class="nfpa-link">
+                                <img src="ICCLOGO.png" alt="NFPA" class="nfpa-icon"> ICC INTERNATIONAL CODE COUNSIL PREPRATION COURSES </a>
 
- <a href="icc.html" class="nfpa-link">
-    <img src="ICCLOGO.png" alt="NFPA" class="nfpa-icon"> ICC INTERNATIONAL CODE COUNSIL PREPRATION COURSES </a>
+                            <a href="safety.html" class="nfpa-link">
+                                <img src="SECURITYLOGO.png" alt="NFPA" class="nfpa-icon"> Security & Safety Systems-Based courses </a>
 
-                             <a href="safety.html" class="nfpa-link">
-    <img src="SECURITYLOGO.png" alt="NFPA" class="nfpa-icon"> Security & Safety Systems-Based courses </a>
+                            <a href="computer.html" class="nfpa-link">
+                                <img src="COMPUTERLOGO.png" alt="NFPA" class="nfpa-icon"> Computer-Based Courses & Digital Skills Training </a>
 
-<a href="computer.html" class="nfpa-link">
-    <img src="COMPUTERLOGO.png" alt="NFPA" class="nfpa-icon"> Computer-Based Courses & Digital Skills Training </a>
-
-
-
-    <a href="international.html" class="nfpa-link">
-    <img src="INTERLOGO.png" alt="NFPA" class="nfpa-icon"> International Certifications </a>
-
-
+                            <a href="international.html" class="nfpa-link">
+                                <img src="INTERLOGO.png" alt="NFPA" class="nfpa-icon"> International Certifications </a>
 
                         </div>
 
@@ -290,26 +382,20 @@ NICET PREPRATION COURSES </a>
 
 <!-- HERO -->
 <section class="hero-full">
-
-    <section class="hero-full">
-    <div class="hero-slider">
-        <img src="back.jpg" class="hero-bg active">
-        <img src="back1.jpg" class="hero-bg">
-        <img src="back2.jpg" class="hero-bg">
-        <img src="back3.jpg" class="hero-bg">
+    <div class="hero-slider" aria-label="FPSE featured banners">
+        <img src="back.jpg" class="hero-bg active" alt="Fire protection engineering">
+        <img src="back1.jpg" class="hero-bg" alt="Fire protection engineering">
+        <!-- <img src="back2.jpg" class="hero-bg" alt="Fire protection engineering"> -->
+        <!-- <img src="back3.jpg" class="hero-bg" alt="Fire protection engineering"> -->
+        <img src="1.jpeg" class="hero-bg promo-slide" alt="Upcoming NFPA training in India">
+        <img src="2.jpeg" class="hero-bg promo-slide" alt="FPSE NFPA authorized training provider">
+        <img src="6.jpeg" class="hero-bg promo-slide" alt="NFPA authorized training provider and fire protection systems">
     </div>
 
-    <div class="hero-overlay">
-        <h1>Fire Protection Solution & Engineering</h1>
-        <p>Professional Fire Safety Training, Inspection & Engineering Solutions</p>
+    <div class="hero-overlay" id="heroDefaultOverlay">
+        <h1>Fire Protection Solution &amp; Engineering</h1>
+        <p>Professional Fire Safety Training, Inspection &amp; Engineering Solutions</p>
         <span class="hero-tagline">TRAIN. RESPOND. SAVE.</span>
-    </div>
-</section>
-
-    <div class="hero-overlay">
-        <h1>Fire Protection Solution & Engineering</h1>
-        <p>Professional Fire Safety Training, Inspection & Engineering Solutions</p>
-        <span class="hero-tagline">PREPARED. PROTECTED. PROVEN.</span>
     </div>
 </section>
 
@@ -323,8 +409,8 @@ NICET PREPRATION COURSES </a>
             protect lives and maintain workplace compliance.
         </p>
         <p>
-            Beyond training, we provide complete fire safety solutions from 
-            <span class="link-text">professional consultation</span> to 
+            Beyond training, we provide complete fire safety solutions from&#x20;
+            <span class="link-text">professional consultation</span> to&#x20;
             <span class="link-text">certified equipment supply</span>.
         </p>
     </div>
@@ -365,9 +451,11 @@ NICET PREPRATION COURSES </a>
                 <div class="home-photo-slide"><img src="5.jpeg" alt="FPSE photo 5"></div>
                 <div class="home-photo-slide"><img src="6.jpeg" alt="FPSE photo 6"></div>
             </div>
+
             <button class="home-photo-arrow home-photo-prev" id="homePhotoPrev" type="button" aria-label="Previous photo">&#8249;</button>
             <button class="home-photo-arrow home-photo-next" id="homePhotoNext" type="button" aria-label="Next photo">&#8250;</button>
         </div>
+
         <div class="home-photo-dots" id="homePhotoDots" aria-label="Choose a photo">
             <button class="home-photo-dot active" type="button" aria-label="Go to photo 1"></button>
             <button class="home-photo-dot" type="button" aria-label="Go to photo 2"></button>
@@ -382,6 +470,7 @@ NICET PREPRATION COURSES </a>
 <!-- EXISTING IMAGE GALLERY -->
 <section class="image-showcase">
     <div class="showcase-container">
+
         <!-- BIG IMAGE -->
         <div class="big-image">
         </div>
@@ -526,5 +615,25 @@ NICET PREPRATION COURSES </a>
     startAutoSlide();
 })();
 </script>
+
+<script>
+(function () {
+    const hero = document.querySelector('.hero-slider');
+    if (!hero) return;
+
+    function syncHeroOverlay() {
+        const activePromo = hero.querySelector('.promo-slide.active');
+        document.body.classList.toggle('hero-promo-active', Boolean(activePromo));
+    }
+
+    syncHeroOverlay();
+    const observer = new MutationObserver(syncHeroOverlay);
+    hero.querySelectorAll('.hero-bg').forEach((slide) => {
+        observer.observe(slide, { attributes: true, attributeFilter: ['class'] });
+    });
+})();
+</script>
+
 </body>
+
 </html>
